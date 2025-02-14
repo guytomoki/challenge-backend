@@ -1,0 +1,18 @@
+spring:
+    flyway:
+        enabled: false
+    application:
+        name: challenge
+    datasource:
+        password: sa
+        url: jdbc:h2://mem:db;DB_CLOSE_DELAY=-1
+        username: sa
+        driver-class-name: org.h2.Driver
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+                format_sql: true
+        show-sql: true

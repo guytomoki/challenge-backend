@@ -1,0 +1,29 @@
+spring:
+    flyway:
+        enabled: true
+        locations: classpath:db/migration
+        clean-disabled: false
+        baseline-on-migrate: true
+    application:
+        name: challenge
+    datasource:
+        password: pass
+        url: jdbc:postgresql://localhost:5432/challenge
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: none
+#            ddl-auto: create-drop
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
+
+application:
+    security:
+        jwt:
+            secret-key: JREZ56AB0125QD427HD90AKYK3T57MG6DQKL3831M5C96ZQM0C3PPOTAB7WJEWS4
+            expiration: 7200000 # 2 hours
+#            refresh-token:
+#                expiration: 604800000 # 7 days
