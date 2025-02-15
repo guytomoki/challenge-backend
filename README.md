@@ -42,6 +42,7 @@ The exposed endpoints are :
 - POST /api/auth/register
 - POST /api/auth/authenticate
 - GET /api/signingRequest
+- POST /api/signingRequest
 - POST /api/signingRequest/sign
 - POST /api/document
 - GET /api/document/{id}
