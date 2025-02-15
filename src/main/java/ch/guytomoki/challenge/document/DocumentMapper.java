@@ -1,6 +1,6 @@
 package ch.guytomoki.challenge.document;
 
-import ch.guytomoki.challenge.configs.MappersConfig;
+import ch.guytomoki.challenge.MappersConfig;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

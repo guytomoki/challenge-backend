@@ -3,6 +3,7 @@ package ch.guytomoki.challenge.document;
 import ch.guytomoki.challenge.jwt.RegisterRequestDto;
 import ch.guytomoki.challenge.signingRequest.ISigningRequestService;
 import ch.guytomoki.challenge.signingRequest.SigningRequest;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class DocumentController {
 
 	@PostMapping()
 	public ResponseEntity<DocumentRespDto> create(@AuthenticationPrincipal UserDetails userDetails,
-												  @RequestBody DocumentRequestDto documentRequestDto) {
+												  @Valid @RequestBody DocumentRequestDto documentRequestDto) {
 		SigningRequest signingRequest = signingRequestService.retrieveSigningRequest(userDetails);
 		DocumentRespDto documentRespDto = documentService.create(documentRequestDto, signingRequest);
 

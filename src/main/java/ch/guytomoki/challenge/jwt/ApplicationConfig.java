@@ -1,4 +1,4 @@
-package ch.guytomoki.challenge.configs;
+package ch.guytomoki.challenge.jwt;
 
 import ch.guytomoki.challenge.jwt.user.UserRepository;
 import lombok.RequiredArgsConstructor;

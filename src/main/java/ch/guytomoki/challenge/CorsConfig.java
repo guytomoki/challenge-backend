@@ -1,4 +1,4 @@
-package ch.guytomoki.challenge.configs;
+package ch.guytomoki.challenge;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

@@ -1,5 +1,8 @@
 package ch.guytomoki.challenge.signingRequest;
 
+import ch.guytomoki.challenge.document.DocumentRequestDto;
+import ch.guytomoki.challenge.document.DocumentRespDto;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,8 +22,13 @@ public class SigningRequestController {
 
 
 	@GetMapping
-	public SigningRequestRespDto getSigningRequest(@AuthenticationPrincipal UserDetails userDetails) {
-		return signingRequestService.retrieveAndMapSigningRequest(userDetails);
+	public ResponseEntity<SigningRequestRespDto> getSigningRequest(@AuthenticationPrincipal UserDetails userDetails) {
+		return ResponseEntity.ok(signingRequestService.retrieveAndMapSigningRequest(userDetails));
+	}
+
+	@PostMapping()
+	public ResponseEntity<SigningRequestRespDto> create(@AuthenticationPrincipal UserDetails userDetails) {
+		return ResponseEntity.ok(signingRequestService.create(userDetails));
 	}
 
 	@PostMapping("sign")

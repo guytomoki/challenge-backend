@@ -1,4 +1,4 @@
-package ch.guytomoki.challenge.configs;
+package ch.guytomoki.challenge;
 
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ReportingPolicy;

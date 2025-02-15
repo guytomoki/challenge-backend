@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.Instant;
 import java.util.NoSuchElementException;
 
 @Service
@@ -27,9 +28,13 @@ public class DocumentService implements IDocumentService {
 	@Override
 	@Transactional
 	public DocumentRespDto create(DocumentRequestDto documentRequestDto, SigningRequest signingRequest) {
+		if (signingRequest.getIsSigned()) {
+			throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, "You cannot add a document to an already signed signing request.");
+		}
 		Document document = documentMapper.toEntity(documentRequestDto);
 		document.setSigningRequest(signingRequest);
 		documentRepository.save(document);
+		signingRequest.setSubmissionDate(Instant.now()); // Should we really update the signingRequest submission date?
 		return documentMapper.toRespDto(document);
 	}
 

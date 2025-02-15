@@ -9,5 +9,7 @@ public interface ISigningRequestService {
 
 	SigningRequestRespDto retrieveAndMapSigningRequest(UserDetails userDetails);
 
+	SigningRequestRespDto create(UserDetails userDetails);
+
 	SigningRequestRespDto sign(UserDetails userDetails) throws ResponseStatusException;
 }
