@@ -76,7 +76,7 @@ public class AuthenticationControllerIT {
         """;
 
 		this.mockMvc.perform(post("/api/auth/authenticate").contentType(MediaType.APPLICATION_JSON).content(body))
-			.andExpect(status().isUnauthorized());
+			.andExpect(status().isBadRequest());
 	}
 
 	@Test
@@ -101,6 +101,6 @@ public class AuthenticationControllerIT {
         """;
 
 		this.mockMvc.perform(post("/api/auth/authenticate").contentType(MediaType.APPLICATION_JSON).content(body))
-			.andExpect(status().isUnauthorized());
+			.andExpect(status().isBadRequest());
 	}
 }
