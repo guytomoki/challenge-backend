@@ -1,5 +1,6 @@
 package ch.guytomoki.challenge;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.io.DeserializationException;
 import jakarta.validation.ConstraintViolationException;
 import org.apache.coyote.BadRequestException;
@@ -64,6 +65,11 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(DeserializationException.class)
 	public ResponseEntity<Object> handleException(DeserializationException exception) {
 		return buildResponseEntity(HttpStatus.FORBIDDEN, exception.getMessage());
+	}
+
+	@ExceptionHandler(ExpiredJwtException.class)
+	public ResponseEntity<Object> handleException(ExpiredJwtException exception) {
+		return buildResponseEntity(HttpStatus.UNAUTHORIZED, exception.getMessage());
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
