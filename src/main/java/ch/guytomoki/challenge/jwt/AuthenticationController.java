@@ -1,5 +1,7 @@
 package ch.guytomoki.challenge.jwt;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -32,4 +34,8 @@ public class AuthenticationController {
 		return ResponseEntity.ok(service.authenticate(request));
 	}
 
+	@PostMapping("/refreshToken")
+	public ResponseEntity<AuthenticationResponseDto> refreshToken(HttpServletRequest request) {
+		return ResponseEntity.ok(service.refreshToken(request));
+	}
 }

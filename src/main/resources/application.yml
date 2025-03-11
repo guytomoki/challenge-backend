@@ -24,4 +24,11 @@ application:
     security:
         jwt:
             secret-key: JREZ56AB0125QD427HD90AKYK3T57MG6DQKL3831M5C96ZQM0C3PPOTAB7WJEWS4
-            expiration: 7200000 # 2 hours
+#            expiration: 7200000 # 2 hours
+            expiration: 10000 # 10 seconds
+            refresh-token:
+                expiration: 5000 # 30 seconds
+#                expiration: 604800000 # 7 days
+#logging:
+#    level:
+#        org.springframework.security: TRACE
